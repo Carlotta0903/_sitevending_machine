@@ -121,11 +121,7 @@ if (page === 'coins-prompt') {
   // SCRIVI PREZZO TOTALE
   set(ref(db, "/percorso/prezzo"), totalPrice);
 
-  // AGGIORNA STOCK
-  const productIndex = selectedProduct.id;
-  const newStock = currentStock - quantity;
-
-  set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
+  // AGGIORNA STOC
 
   // Aspetta 2 secondi sulla schermata della moneta, poi vai al credito
   setTimeout(() => {
@@ -140,6 +136,10 @@ if (page === 'coins-prompt') {
       credit = snapshot.val();
       updateCreditDisplay()
       if(credit >= totalPrice && totalPrice > 0) {
+        const productIndex = selectedProduct.id;
+        const newStock = currentStock - quantity;
+
+        set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
         unsubscribe();
         setTimeout(() => showPage('coins-processing'), 2000);
         setTimeout(() => showPage('thankyou'), 5000);
@@ -255,9 +255,6 @@ set(ref(db, "/percorso/stato_nfc"), stato_nfc);
 
 set(ref(db, "/percorso/prezzo"), totalPrice);
 
-const productIndex = selectedProduct.id;
-const newStock = currentStock - quantity;
-set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
 
   // 1. Mostra il prompt "Appoggia la carta" dopo 2 secondi
   
@@ -268,6 +265,10 @@ set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newSto
     const stato = snapshot.val();
 
     if (stato == 2) {
+
+    const productIndex = selectedProduct.id;
+    const newStock = currentStock - quantity;
+    set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
       
       unsubscribeNfc(); // stop listener
       stato_nfc = 0;
