@@ -173,18 +173,15 @@ function renderProducts() {
   const grid = document.getElementById('products-grid');
   if (!grid) return;
   
-  // Modifichiamo la griglia per avvicinare i rettangoli diminuendo il gap (gap-3)
-  grid.className = "relative z-10 grid grid-cols-2 gap-3 px-4 pb-6 pt-2 overflow-auto flex-1";
-  
   grid.innerHTML = products.map(p => `
-    <button onclick="selectProduct(${p.id})" class="btn-pop pop-border pop-shadow rounded-3xl p-3 flex flex-col items-center justify-center text-center w-full h-[195px] hover:opacity-80 transition-all" style="background: ${p.bg};">
-      <div class="flex flex-col items-center justify-center gap-1 w-full">
+    <button onclick="selectProduct(${p.id})" class="btn-pop pop-border pop-shadow rounded-3xl flex flex-col items-center justify-center text-center w-full h-[180px] hover:opacity-80 transition-all p-2" style="background: ${p.bg};">
+      <div class="flex flex-col items-center justify-center gap-1 w-full h-full">
         
-        <span class="text-6xl leading-none select-none block mb-1">${p.emoji}</span>
+        <span class="text-6xl leading-none select-none block">${p.emoji}</span>
         
-        <span class="pop-title text-2xl text-black block leading-none truncate max-w-[200px] mb-1">${p.name}</span>
+        <span class="pop-title text-2xl text-black block leading-none truncate max-w-[180px] my-1">${p.name}</span>
         
-        <span class="font-bold text-2xl pop-border rounded-full px-5 py-1 bg-white text-black shadow-sm inline-block leading-none mt-1">${p.price.toFixed(2)}€</span>
+        <span class="font-bold text-2xl pop-border rounded-full px-5 py-1 bg-white text-black shadow-sm inline-block leading-none">${p.price.toFixed(2)}€</span>
       </div>
     </button>
   `).join('');
