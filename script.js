@@ -173,11 +173,13 @@ function renderProducts() {
   const grid = document.getElementById('products-grid');
   if (!grid) return;
   grid.innerHTML = products.map(p => `
-    <button onclick="selectProduct(${p.id})" class="btn-pop pop-border pop-shadow rounded-3xl p-4 flex flex-col items-center justify-center text-center w-full h-full min-h-[120px] max-h-[16vh] hover:opacity-80 transition-all" style="background: ${p.bg};">
-      <div class="flex flex-col items-center justify-center gap-4 w-full h-full">
-        <span class="text-8xl leading-none select-none block">${p.emoji}</span>
-        <span class="pop-title text-3xl text-black block leading-none truncate max-w-[240px]">${p.name}</span>
-        <span class="font-bold text-2xl pop-border rounded-full px-6 py-1 bg-white text-black shadow-sm inline-block leading-none">${p.price.toFixed(2)}€</span>
+    <button onclick="selectProduct(${p.id})" class="btn-pop pop-border pop-shadow rounded-3xl p-4 flex flex-col items-center justify-center text-center w-full h-full min-h-[160px] max-h-[20vh] hover:opacity-80 transition-all" style="background: ${p.bg};">
+      <div class="flex flex-col items-center justify-center gap-2 w-full">
+        <span class="text-7xl leading-none select-none block mb-1">${p.emoji}</span>
+        
+        <span class="pop-title text-3xl text-black block leading-none truncate max-w-[240px] mb-1">${p.name}</span>
+        
+        <span class="font-bold text-3xl pop-border rounded-full px-6 py-1.5 bg-white text-black shadow-sm inline-block leading-none">${p.price.toFixed(2)}€</span>
       </div>
     </button>
   `).join('');
