@@ -136,12 +136,12 @@ if (page === 'coins-prompt') {
       credit = snapshot.val();
       updateCreditDisplay()
       if(credit >= totalPrice && totalPrice > 0) {
+        unsubscribe();
+        setTimeout(() => showPage('coins-processing'), 2000);
         const productIndex = selectedProduct.id;
         const newStock = currentStock - quantity;
 
         set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
-        unsubscribe();
-        setTimeout(() => showPage('coins-processing'), 2000);
         setTimeout(() => showPage('thankyou'), 5000);
         credit = 0;
       }
@@ -265,16 +265,14 @@ set(ref(db, "/percorso/prezzo"), totalPrice);
     const stato = snapshot.val();
 
     if (stato == 2) {
-
-    const productIndex = selectedProduct.id;
-    const newStock = currentStock - quantity;
-    set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
-      
       unsubscribeNfc(); // stop listener
       stato_nfc = 0;
       set(ref(db, "/percorso/stato_nfc"), stato_nfc);
       showPage('card-processing');
       setTimeout(() => showPage('payment-success'), 2000);
+      const productIndex = selectedProduct.id;
+      const newStock = currentStock - quantity;
+      set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
       setTimeout(() => showPage('thankyou'), 4000);
     }
 
