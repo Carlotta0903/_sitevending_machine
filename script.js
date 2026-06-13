@@ -174,16 +174,16 @@ function renderProducts() {
   if (!grid) return;
   grid.innerHTML = products.map(p => `
     <button onclick="selectProduct(${p.id})" 
-            class="btn-pop pop-border pop-shadow rounded-2xl flex flex-col items-center justify-center text-center w-full hover:opacity-80 transition-all p-4" 
-            style="background: ${p.bg}; height: 220px !important;">
+            class="btn-pop pop-border pop-shadow rounded-2xl flex flex-col items-center justify-center text-center w-full hover:opacity-80 transition-all p-2" 
+            style="background: ${p.bg}; height: 200px !important;">
       
-      <div class="flex flex-col items-center justify-center w-full h-full" style="gap: 4px !important;">
+      <div class="flex flex-col items-center justify-center w-full" style="gap: 2px !important;">
         
-        <span class="text-5xl leading-none select-none block" style="margin-bottom: 2px;">${p.emoji}</span>
+        <span class="text-4xl leading-none select-none block" style="margin-bottom: 2px;">${p.emoji}</span>
         
-        <span class="pop-title text-xl text-black block leading-none truncate max-w-[150px]" style="margin-bottom: 6px;">${p.name}</span>
+        <span class="pop-title text-lg text-black block leading-none truncate max-w-[150px] mb-1">${p.name}</span>
         
-        <span class="font-bold text-2xl pop-border rounded-full px-5 py-1 bg-white text-black shadow-sm inline-block leading-none">${p.price.toFixed(2)}€</span>
+        <span class="font-bold text-xl pop-border rounded-full px-5 py-1 bg-white text-black shadow-sm inline-block leading-none mt-1">€${p.price.toFixed(2)}</span>
       </div>
       
     </button>
