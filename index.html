@@ -1,7 +1,7 @@
 <html class="h-full">
  <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=600, height=1024, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   
@@ -129,14 +129,6 @@
 .modal-show {
   display: flex !important;
 }
-
-#app {
-  transform: scale(1.18);
-  transform-origin: top center;
-  width: 85%;
-  height: 85%;
-  margin: 0 auto;
-}
   
   </style>
  </head>
@@ -145,45 +137,45 @@
     
     <div id="page-home" class="w-full h-full flex flex-col items-center justify-between relative" style="background: #FFD700;">
      <div class="halftone"></div>
-     <div class="absolute top-6 right-6 z-20">
-      <div class="pop-border pop-shadow rounded-lg px-8 py-4 bg-white">
-        <p id="date-time" class="text-2xl font-bold text-center text-black"></p>
+     <div class="relative z-10 w-full flex justify-end px-6 pt-6 max-w-2xl mx-auto">
+      <div class="pop-border pop-shadow rounded-lg px-3 py-2" style="background: #FFF;">
+       <p id="date-time" class="text-xs font-bold" style="color: #000;"></p>
       </div>
-    </div>
-     <div class="relative z-10 flex flex-col items-center text-center px-10 flex-1 justify-center gap-6">
-      <div class="float-anim mb-4">
-       <svg width="100" height="100" viewbox="0 0 120 120">
+     </div>
+     <div class="relative z-10 flex flex-col items-center text-center px-8 flex-1 justify-center max-w-2xl mx-auto w-full">
+      <div class="float-anim mb-6">
+       <svg width="110" height="110" viewbox="0 0 120 120">
         <rect x="10" y="10" width="100" height="100" rx="12" fill="#FF1493" stroke="#000" stroke-width="4" /> 
         <rect x="25" y="30" width="30" height="50" rx="4" fill="#00BFFF" stroke="#000" stroke-width="2" /> 
         <rect x="65" y="30" width="30" height="50" rx="4" fill="#7FFF00" stroke="#000" stroke-width="2" /> 
         <rect x="25" y="85" width="70" height="12" rx="3" fill="#FFD700" stroke="#000" stroke-width="2" />
        </svg>
       </div>
-      <h1 id="home-title" class="pop-title text-6xl tracking-wide mb-4" style="color: #FF1493; text-shadow: 3px 3px 0 #000;">SNACK &amp; DRINK</h1>
-      <p id="home-subtitle" class="text-lg font-bold mb-8" style="color: #000;">La tua vending machine preferita!</p>
-      <button id="home-btn" onclick="showPage('products')" class="btn-pop pop-border pop-shadow px-16 py-8 text-4xl font-bold pop-title tracking-wide rounded-2xl" style="background: #FF1493; color: #FFF;">SCEGLI IL TUO SNACK!</button>
+      <h1 id="home-title" class="pop-title text-5xl tracking-wide mb-3" style="color: #FF1493; text-shadow: 3px 3px 0 #000;">SNACK &amp; DRINK</h1>
+      <p id="home-subtitle" class="text-lg font-bold mb-10" style="color: #000;">La tua vending machine preferita!</p>
+      <button id="home-btn" onclick="showPage('products')" class="btn-pop pop-border pop-shadow w-full py-8 text-3xl font-bold pop-title tracking-wide rounded-2xl max-w-md mx-auto" style="background: #FF1493; color: #FFF;">SCEGLI IL TUO SNACK!</button>
      </div>
-     <div class="absolute top-20 left-8 z-0 text-4xl rotate-12">⭐</div>
-     <div class="absolute top-40 right-12 z-0 text-5xl -rotate-12">🍭</div>
-     <div class="absolute bottom-32 left-12 z-0 text-4xl rotate-45">🌟</div>
-     <div class="absolute bottom-20 right-8 z-0 text-5xl -rotate-45">🍬</div>
+     <div class="absolute top-24 left-12 z-0 text-4xl rotate-12 opacity-40">⭐</div>
+     <div class="absolute top-44 right-16 z-0 text-5xl -rotate-12 opacity-40">🍭</div>
+     <div class="absolute bottom-36 left-16 z-0 text-4xl rotate-45 opacity-40">🌟</div>
+     <div class="absolute bottom-24 right-12 z-0 text-5xl -rotate-45 opacity-40">🍬</div>
     </div>
 
     <div id="page-products" class="w-full h-full flex flex-col hidden" style="background: #00BFFF;">
      <div class="halftone"></div>
-     <header class="relative z-10 flex items-center justify-between px-4 pt-4 pb-2">
+     <header class="relative z-10 flex items-center justify-between px-6 pt-6 pb-4 max-w-2xl mx-auto w-full">
       <div class="flex items-center gap-2 w-12">
        <button onclick="showPage('home')" class="btn-pop pop-border pop-shadow p-2 rounded-lg" style="background: #FFD700;"><i data-lucide="home" style="width:24px;height:24px;"></i></button>
       </div>
       <h2 class="pop-title text-3xl" style="color: #FFF; text-shadow: 2px 2px 0 #000;">PRODOTTI</h2>
       <div class="w-12"></div>
      </header>
-    <div id="products-grid" class="relative z-10 grid grid-cols-2 gap-6 px-8 pb-10 pt-6 overflow-auto flex-1"></div>
+     <div id="products-grid" class="relative z-10 grid grid-cols-2 gap-6 px-6 pb-8 pt-2 overflow-auto flex-1 max-w-2xl mx-auto w-full"></div>
     </div>
 
     <div id="page-detail" class="w-full h-full flex flex-col hidden" style="background: #FF1493;">
      <div class="halftone"></div>
-     <header class="relative z-10 flex items-center justify-between px-4 pt-4 pb-2">
+     <header class="relative z-10 flex items-center justify-between px-6 pt-6 pb-2 max-w-2xl mx-auto w-full">
       <div class="flex items-center gap-2 w-12">
        <button onclick="showPage('products')" class="btn-pop pop-border pop-shadow p-2 rounded-lg" style="background: #FFD700;"><i data-lucide="arrow-left" style="width:24px;height:24px;"></i></button> 
        <button onclick="showPage('home')" class="btn-pop pop-border pop-shadow p-2 rounded-lg" style="background: #FFD700;"><i data-lucide="home" style="width:24px;height:24px;"></i></button>
@@ -191,128 +183,71 @@
       <h2 class="pop-title text-3xl" style="color: #FFF; text-shadow: 2px 2px 0 #000;">DETTAGLI</h2>
       <div class="w-12"></div>
      </header>
-     <div class="relative z-10 flex flex-col items-center px-6 pt-6 flex-1 justify-center">
-      <div class="text-center mb-12 scale-125">
-       <div id="detail-image" class="pop-border pop-shadow rounded-lg w-24 h-24 flex items-center justify-center mb-3" style="background: #FFF;"></div>
-       <h3 id="detail-name" class="pop-title text-lg" style="color: #FFF;"></h3>
-       <p id="detail-price" class="text-sm font-bold" style="color: #FFF;"></p>
+     <div class="relative z-10 flex flex-col items-center px-6 pb-8 flex-1 justify-center max-w-md mx-auto w-full">
+      <div class="text-center mb-8">
+       <div id="detail-image" class="pop-border pop-shadow rounded-lg w-28 h-28 flex items-center justify-center mb-4 mx-auto" style="background: #FFF;"></div>
+       <h3 id="detail-name" class="pop-title text-2xl mb-1" style="color: #FFF;"></h3>
+       <p id="detail-price" class="text-lg font-bold" style="color: #FFF;"></p>
       </div>
       <div class="pop-border pop-shadow rounded-2xl p-6 w-full text-center mb-6" style="background: #FFF;">
        <p class="text-2xl font-bold mb-4" style="color: #000;">Quantità:</p>
-      <div class="flex items-center justify-center gap-8">
-
-  <button
-    onclick="decreaseQuantity()"
-    class="btn-pop pop-border pop-shadow px-8 py-5 text-5xl font-bold rounded-lg"
-    style="background: #7FFF00; color: #000;">
-    −
-  </button>
-
-  <span
-    id="quantity-display"
-    class="pop-title text-7xl"
-    style="color: #7FFF00;">
-    1
-  </span>
-
-  <button
-    onclick="increaseQuantity()"
-    class="btn-pop pop-border pop-shadow px-8 py-5 text-5xl font-bold rounded-lg"
-    style="background: #7FFF00; color: #000;">
-    +
-  </button>
-
-</div>
+       <div class="flex items-center justify-center gap-6">
+        <button onclick="decreaseQuantity()" class="btn-pop pop-border pop-shadow px-5 py-2 text-3xl font-bold rounded-lg" style="background: #7FFF00; color: #000;">−</button> 
+        <span id="quantity-display" class="pop-title text-5xl min-w-[60px]" style="color: #7FFF00;">1</span> 
+        <button onclick="increaseQuantity()" class="btn-pop pop-border pop-shadow px-5 py-2 text-3xl font-bold rounded-lg" style="background: #7FFF00; color: #000;">+</button>
+       </div>
       </div>
       <button onclick="proceedToPayment()" class="btn-pop pop-border pop-shadow w-full py-4 rounded-xl text-2xl font-bold pop-title" style="background: #00BFFF; color: #000;">PROCEDI AL PAGAMENTO</button>
      </div>
     </div>
 
-<div id="page-payment" class="w-full h-full flex flex-col hidden" style="background: #7FFF00;">
-
-  <div class="halftone"></div>
-
-  <header class="relative z-10 flex items-center justify-between px-6 pt-6 pb-4">
-    <div class="flex items-center gap-4 w-16">
-
-      <button onclick="showPage('detail')"
-        class="btn-pop pop-border pop-shadow p-4 rounded-lg"
-        style="background: #FFD700;">
-        <i data-lucide="arrow-left" style="width:32px;height:32px;"></i>
-      </button>
-
-      <button onclick="showPage('home')"
-        class="btn-pop pop-border pop-shadow p-4 rounded-lg"
-        style="background: #FFD700;">
-        <i data-lucide="home" style="width:32px;height:32px;"></i>
-      </button>
-
+    <div id="page-payment" class="w-full h-full flex flex-col hidden" style="background: #7FFF00;">
+     <div class="halftone"></div>
+     <header class="relative z-10 flex items-center justify-between px-6 pt-6 pb-2 max-w-2xl mx-auto w-full">
+      <div class="flex items-center gap-2 w-12">
+       <button onclick="showPage('detail')" class="btn-pop pop-border pop-shadow p-2 rounded-lg" style="background: #FFD700;"><i data-lucide="arrow-left" style="width:24px;height:24px;"></i></button> 
+       <button onclick="showPage('home')" class="btn-pop pop-border pop-shadow p-2 rounded-lg" style="background: #FFD700;"><i data-lucide="home" style="width:24px;height:24px;"></i></button>
+      </div>
+      <div class="w-12"></div>
+     </header>
+     <div class="relative z-10 flex flex-col items-center px-6 pb-8 flex-1 justify-center gap-6 max-w-md mx-auto w-full">
+      <div class="text-center w-full pop-border pop-shadow rounded-2xl p-8" style="background: #FFF; min-height: 280px; display: flex; flex-direction: column; justify-content: center;">
+       <div id="payment-image" class="flex items-center justify-center mb-4" style="height: 100px;"></div>
+       <h3 id="payment-name" class="pop-title text-2xl mb-2" style="color: #000;"></h3>
+       <p id="payment-qty" class="text-lg font-bold mb-3" style="color: #000;"></p>
+       <p id="payment-total" class="pop-title text-3xl" style="color: #7FFF00; text-shadow: 1px 1px 0 #000;"></p>
+      </div>
+      <p id="payment-msg" class="text-center font-bold text-lg" style="color: #000;"></p>
+      <div class="flex gap-4 w-full">
+        <button onclick="processCashPayment()" class="btn-pop pop-border pop-shadow flex-1 py-4 rounded-xl text-xl font-bold pop-title" style="background: #7FFF00; color: #000;">💵 CONTANTI </button>
+        <button onclick="processCardPayment()" class="btn-pop pop-border pop-shadow flex-1 py-4 rounded-xl text-xl font-bold pop-title" style="background: #00BFFF; color: #000;">💳 CARTA</button>
+      </div>
+     </div>
     </div>
-
-    <div class="w-16"></div>
-  </header>
-
-  <!-- CENTRATURA PIÙ FORTE -->
-  <div class="relative z-10 flex flex-col items-center px-10 flex-1 justify-center gap-6">
-
-    <!-- BOX PRODOTTO -->
-    <div class="text-center w-full pop-border pop-shadow rounded-3xl p-12"
-      style="background: #FFF; min-height: 360px; display: flex; flex-direction: column; justify-content: center;">
-
-      <div id="payment-image" class="flex items-center justify-center mb-4" style="height: 120px;"></div>
-
-      <h3 id="payment-name" class="pop-title text-3xl mb-3" style="color: #000;"></h3>
-
-      <p id="payment-qty" class="text-2xl font-bold mb-3" style="color: #000;"></p>
-
-      <p id="payment-total" class="pop-title text-5xl" style="color: #7FFF00;"></p>
-
-    </div>
-
-    <!-- MESSAGGIO -->
-    <p id="payment-msg" class="text-center font-bold text-2xl" style="color: #000;"></p>
-
-    <!-- BOTTONI -->
-    <div class="flex gap-6 w-full mt-2">
-
-      <button onclick="processCashPayment()"
-        class="btn-pop pop-border pop-shadow flex-1 py-6 rounded-xl text-2xl font-bold pop-title"
-        style="background: #7FFF00; color: #000;">
-        💵 CONTANTI
-      </button>
-
-      <button onclick="processCardPayment()"
-        class="btn-pop pop-border pop-shadow flex-1 py-6 rounded-xl text-2xl font-bold pop-title"
-        style="background: #00BFFF; color: #000;">
-        💳 CARTA
-      </button>
-
-    </div>
-
-  </div>
-</div>
 
     <div id="page-card-prompt" class="w-full h-full flex flex-col hidden" style="background: #00BFFF;">
       <div class="halftone"></div>
-      <div class="relative z-10 flex flex-col items-center px-6 pt-12 flex-1 justify-center gap-8 text-center">
-        <div class="text-8xl mb-4 float-anim">💳</div>
-        <h1 class="pop-title text-4xl" style="color: #FFF; text-shadow: 3px 3px 0 #000;">APPOGGIA LA CARTA</h1>
-        <p class="text-2xl font-bold" style="color: #FFF;">al terminale di pagamento</p>
+      <div class="relative z-10 flex flex-col items-center px-6 flex-1 justify-center gap-8 text-center max-w-md mx-auto w-full">
+        <div class="text-8xl mb-2 float-anim">💳</div>
+        <div>
+          <h1 class="pop-title text-4xl mb-2" style="color: #FFF; text-shadow: 3px 3px 0 #000;">APPOGGIA LA CARTA</h1>
+          <p class="text-2xl font-bold" style="color: #FFF;">al terminale di pagamento</p>
+        </div>
         <div class="pop-border pop-shadow rounded-3xl p-8 w-full" style="background: #FFF;">
-        <p class="text-4xl mb-4">🔘</p>
-        <p class="text-lg font-bold" style="color: #000;">Attendere il riconoscimento...</p>
+          <p class="text-4xl mb-4">🔘</p>
+          <p class="text-lg font-bold" style="color: #000;">Attendere il riconoscimento...</p>
         </div>
       </div>
     </div>
 
     <div id="page-card-processing" class="w-full h-full flex flex-col hidden" style="background: #00BFFF;">
       <div class="halftone"></div>
-      <div class="relative z-10 flex flex-col items-center px-6 pt-12 flex-1 justify-center gap-6 text-center">
-        <div class="text-8xl mb-4 animate-spin-custom">💳</div>
-        
-        <h1 class="pop-title text-4xl" style="color: #FFF; text-shadow: 3px 3px 0 #000;">ATTENDERE...</h1>
-        <p class="text-xl font-bold" style="color: #FFF;">Elaborazione pagamento con carta</p>
-        
+      <div class="relative z-10 flex flex-col items-center px-6 flex-1 justify-center gap-6 text-center max-w-md mx-auto w-full">
+        <div class="text-8xl mb-2 animate-spin-custom">💳</div>
+        <div>
+          <h1 class="pop-title text-4xl mb-2" style="color: #FFF; text-shadow: 3px 3px 0 #000;">ATTENDERE...</h1>
+          <p class="text-xl font-bold" style="color: #FFF;">Elaborazione pagamento con carta</p>
+        </div>
         <div class="pop-border pop-shadow rounded-3xl p-8 w-full" style="background: #FFF;">
           <div class="flex justify-center gap-4 mb-4">
             <span class="text-4xl animate-pulse-custom" style="color: #00BFFF;">●</span>
@@ -327,26 +262,23 @@
     <div id="page-thankyou" class="w-full h-full flex flex-col hidden overflow-hidden" 
      style="background: linear-gradient(45deg, #FF1493 0%, #FFD700 25%, #00BFFF 50%, #7FFF00 75%, #FF1493 100%); background-size: 400% 400%; animation: gradientShift 3s ease infinite;">
      <div class="halftone"></div>
-     <div class="relative z-10 flex flex-col items-center px-6 pt-12 flex-1 justify-center gap-6 text-center">
-      <div class="text-8xl mb-4">🎉</div>
-      <h1 class="pop-title text-5xl" style="color: #FF1493; text-shadow: 3px 3px 0 #000;">GRAZIE!</h1>
-      <p class="pop-title text-2xl" style="color: #000;">Per il tuo acquisto</p>
+     <div class="relative z-10 flex flex-col items-center px-6 flex-1 justify-center gap-6 text-center max-w-md mx-auto w-full">
+      <div class="text-8xl mb-2">🎉</div>
+      <div>
+        <h1 class="pop-title text-5xl mb-1" style="color: #FF1493; text-shadow: 3px 3px 0 #000;">GRAZIE!</h1>
+        <p class="pop-title text-2xl" style="color: #000;">Per il tuo acquisto</p>
+      </div>
       <div class="pop-border pop-shadow rounded-3xl p-8 w-full" style="background: #FFF;">
        <p class="text-xl font-bold mb-4" style="color: #000;">Torna a trovarci presto!</p>
        <p class="text-lg" style="color: #FF1493;">I migliori snack aspettano solo te!</p>
       </div>
-      <p id="thankyou-timer" class="text-lg font-bold" style="color: #000;"></p>
+      <p id="thankyou-timer" class="text-lg font-bold bg-white/80 px-4 py-2 rounded-full pop-border" style="color: #000;"></p>
      </div>
     </div>
 
-  
-
-
-    
-
     <div id="page-credit" class="w-full h-full flex flex-col hidden" style="background: #FF1493;">
      <div class="halftone"></div>
-     <div class="relative z-10 flex flex-col items-center px-6 pt-12 flex-1 justify-center gap-8">
+     <div class="relative z-10 flex flex-col items-center px-6 flex-1 justify-center gap-8 max-w-md mx-auto w-full">
       <h1 class="pop-title text-4xl text-center" style="color: #FFF; text-shadow: 2px 2px 0 #000;">INSERISCI CREDITO</h1>
       <div class="pop-border pop-shadow rounded-3xl p-8 w-full text-center" style="background: #7FFF00;">
        <p class="pop-title text-2xl mb-4" style="color: #000;">💰 CREDITO</p>
@@ -357,10 +289,12 @@
 
     <div id="page-coins-prompt" class="w-full h-full flex flex-col hidden" style="background: #FFD700;">
       <div class="halftone"></div>
-      <div class="relative z-10 flex flex-col items-center px-6 pt-12 flex-1 justify-center gap-8 text-center">
-        <div class="text-8xl mb-4 float-anim">🪙</div>
-        <h1 class="pop-title text-4xl" style="color: #000; text-shadow: 3px 3px 0 #FFF;">INSERISCI LE MONETE</h1>
-        <p class="text-2xl font-bold" style="color: #000;">nel terminale di pagamento</p>
+      <div class="relative z-10 flex flex-col items-center px-6 flex-1 justify-center gap-8 text-center max-w-md mx-auto w-full">
+        <div class="text-8xl mb-2 float-anim">🪙</div>
+        <div>
+          <h1 class="pop-title text-4xl mb-2" style="color: #000; text-shadow: 3px 3px 0 #FFF;">INSERISCI LE MONETE</h1>
+          <p class="text-2xl font-bold" style="color: #000;">nel terminale di pagamento</p>
+        </div>
         <div class="pop-border pop-shadow rounded-3xl p-8 w-full" style="background: #FFF; border-width: 5px;">
           <p class="text-6xl mb-4">💰</p>
           <p class="text-lg font-bold" style="color: #000;">Attendere il riconoscimento...</p>
@@ -370,10 +304,12 @@
 
     <div id="page-coins-processing" class="w-full h-full flex flex-col hidden" style="background: #FFD700;">
       <div class="halftone"></div>
-      <div class="relative z-10 flex flex-col items-center px-6 pt-12 flex-1 justify-center gap-6 text-center">
-        <div class="text-8xl mb-4 animate-spin-custom">🪙</div>
-        <h1 class="pop-title text-4xl" style="color: #000; text-shadow: 3px 3px 0 #FFF;">ATTENDERE...</h1>
-        <p class="text-xl font-bold" style="color: #000;">Elaborazione pagamento con monete</p>
+      <div class="relative z-10 flex flex-col items-center px-6 flex-1 justify-center gap-6 text-center max-w-md mx-auto w-full">
+        <div class="text-8xl mb-2 animate-spin-custom">🪙</div>
+        <div>
+          <h1 class="pop-title text-4xl mb-2" style="color: #000; text-shadow: 3px 3px 0 #FFF;">ATTENDERE...</h1>
+          <p class="text-xl font-bold" style="color: #000;">Elaborazione pagamento con monete</p>
+        </div>
         <div class="pop-border pop-shadow rounded-3xl p-8 w-full" style="background: #FFF; border-width: 5px;">
           <div class="flex justify-center gap-2 mb-4">
             <span class="text-4xl animate-pulse-custom" style="color: #FFD700;">●</span>
@@ -385,110 +321,46 @@
       </div>
     </div>
 
-    <div id="page-card-processing" class="w-full h-full flex flex-col hidden" style="background: #FFD700;">
-      <div class="halftone"></div>
-      <div class="relative z-10 flex flex-col items-center px-6 pt-12 flex-1 justify-center gap-6 text-center">
-        <div class="text-8xl mb-4 animate-spin-custom">💳</div>
-        <h1 class="pop-title text-4xl" style="color: #000; text-shadow: 3px 3px 0 #FFF;">ATTENDERE...</h1>
-        <p class="text-xl font-bold" style="color: #000;">Elaborazione pagamento con carta</p>
-        <div class="pop-border pop-shadow rounded-3xl p-8 w-full" style="background: #FFF; border-width: 5px;">
-          <div class="flex justify-center gap-2 mb-4">
-            <span class="text-4xl animate-pulse-custom" style="color: #00bbff;">●</span>
-            <span class="text-4xl animate-pulse-custom" style="color: #00bbff; animation-delay: 0.2s;">●</span>
-            <span class="text-4xl animate-pulse-custom" style="color: #00bbff; animation-delay: 0.4s;">●</span>
-          </div>
-          <p class="text-lg font-bold" style="color: #000;">Stiamo elaborando il tuo pagamento...</p>
-        </div>
-      </div>
-    </div>
-
     <div id="page-payment-success" class="w-full h-full hidden dots-bg-green flex-col items-center justify-center relative overflow-hidden">
-
       <div class="star-burst" id="stars-success"></div>
-
-      <div class="relative flex flex-col items-center z-10">
-
-        <div class="burst opacity-40 anim-bounce"
-          style="top:-80px;left:50%;transform:translateX(-50%);background:#00E676;">
+      <div class="relative flex flex-col items-center z-10 px-6 max-w-md mx-auto w-full">
+        <div class="burst opacity-40 anim-bounce" style="top:-80px;left:50%;transform:translateX(-50%);background:#00E676;"></div>
+        <div class="anim-pop text-[120px] leading-none relative z-20">🎉</div>
+        <div class="comic-border bg-white rounded-3xl px-8 py-6 mt-6 w-full anim-pop">
+          <p class="pop-font text-3xl text-center text-green-600">PAGAMENTO RIUSCITO</p>
         </div>
-
-        <div class="anim-pop text-[140px] leading-none relative z-20">
-          🎉
-        </div>
-
-        <div class="comic-border bg-white rounded-3xl px-10 py-7 mt-6 max-w-lg mx-4 anim-pop">
-
-          <p class="pop-font text-4xl text-center text-green-600">
-            PAGAMENTO RIUSCITO
-          </p>
-
-        </div>
-
-        <div class="mt-8 action-badge bg-green-500 border-green-700 anim-pop">
+        <div class="mt-6 action-badge bg-green-500 border-green-700 anim-pop">
           <span class="pop-font text-2xl">✓</span>
         </div>
-
       </div>
     </div>
 
     <div id="page-payment-failed" class="w-full h-full hidden dots-bg flex-col items-center justify-center relative overflow-hidden">
-
       <div class="star-burst" id="stars-failed"></div>
-
-      <div class="relative flex flex-col items-center z-10">
-
-        <div class="burst opacity-40 anim-bounce"
-          style="top:-80px;left:50%;transform:translateX(-50%);">
+      <div class="relative flex flex-col items-center z-10 px-6 max-w-md mx-auto w-full">
+        <div class="burst opacity-40 anim-bounce" style="top:-80px;left:50%;transform:translateX(-50%);"></div>
+        <div class="anim-pop text-[120px] leading-none relative z-20">💥</div>
+        <div class="comic-border bg-white rounded-3xl px-8 py-6 mt-6 w-full anim-pop">
+          <p class="pop-font text-3xl text-center text-red-600">PAGAMENTO FALLITO</p>
         </div>
-
-        <div class="anim-pop text-[140px] leading-none relative z-20">
-          💥
-        </div>
-
-        <div class="comic-border bg-white rounded-3xl px-10 py-7 mt-6 max-w-md mx-4 anim-pop">
-
-          <p class="pop-font text-4xl text-center text-red-600">
-            PAGAMENTO FALLITO
-          </p>
-
-        </div>
-
-        <div class="mt-8 action-badge bg-red-600 border-red-800 anim-pop">
+        <div class="mt-6 action-badge bg-red-600 border-red-800 anim-pop">
           <span class="pop-font text-2xl">✗</span>
         </div>
-
       </div>
     </div>
 
   </div>
  <script type="module" src="script.js"></script>
 
-<!-- POPUP MODALE -->
 <div id="custom-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
-  
-  <!-- overlay -->
   <div class="absolute inset-0 bg-black/60"></div>
-
-  <!-- contenuto -->
-  <div class="relative z-10 pop-border pop-shadow rounded-3xl p-8 text-center max-w-sm mx-4 anim-pop"
-       style="background: #FFF;">
-    
+  <div class="relative z-10 pop-border pop-shadow rounded-3xl p-8 text-center max-w-sm mx-4 anim-pop" style="background: #FFF;">
     <div id="modal-icon" class="text-6xl mb-4">⚠️</div>
-    
     <h2 id="modal-title" class="pop-title text-2xl mb-2"></h2>
-    
     <p id="modal-text" class="text-lg font-bold mb-6"></p>
-
-    <button onclick="closeModal()"
-      class="btn-pop pop-border pop-shadow px-8 py-3 rounded-xl pop-title text-xl"
-      style="background:#FFD700;">
-      OK
-    </button>
-
+    <button onclick="closeModal()" class="btn-pop pop-border pop-shadow px-8 py-3 rounded-xl pop-title text-xl" style="background:#FFD700;">OK</button>
   </div>
 </div>
-
-
 
 </body>
 </html>
