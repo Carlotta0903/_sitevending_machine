@@ -173,10 +173,14 @@ function renderProducts() {
   const grid = document.getElementById('products-grid');
   if (!grid) return;
   grid.innerHTML = products.map(p => `
-    <button onclick="selectProduct(${p.id})" class="btn-pop pop-border pop-shadow rounded-2xl p-4 flex flex-col items-center gap-2 hover:opacity-80" style="background: ${p.bg};">
-      <span class="text-5xl">${p.emoji}</span>
-      <span class="pop-title text-lg" style="color: #000;">${p.name}</span>
-      <span class="font-bold text-sm pop-border rounded-full px-3 py-1" style="background: #FFF;">€${p.price.toFixed(2)}</span>
+    <button onclick="selectProduct(${p.id})" class="btn-pop pop-border pop-shadow rounded-3xl p-4 flex flex-col items-center justify-center text-center w-full h-full min-h-[120px] max-h-[16vh] hover:opacity-80 transition-all" style="background: ${p.bg};">
+      <div class="flex-1 flex flex-col items-center justify-center gap-2">
+        <span class="text-7xl leading-none select-none">${p.emoji}</span>
+        <span class="pop-title text-3xl text-black block leading-none truncate max-w-[220px]">${p.name}</span>
+      </div>
+      <div class="mt-2">
+        <span class="font-bold text-xl pop-border rounded-full px-5 py-1 bg-white text-black shadow-sm inline-block">€${p.price.toFixed(2)}</span>
+      </div>
     </button>
   `).join('');
 }
