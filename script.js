@@ -173,14 +173,20 @@ function renderProducts() {
   const grid = document.getElementById('products-grid');
   if (!grid) return;
   grid.innerHTML = products.map(p => `
-    <button onclick="selectProduct(${p.id})" class="btn-pop pop-border pop-shadow rounded-3xl p-4 flex flex-col items-center justify-center text-center w-full h-full min-h-[120px] max-h-[16vh] hover:opacity-80 transition-all" style="background: ${p.bg};">
-      <div class="flex-1 flex flex-col items-center justify-center gap-2">
-        <span class="text-7xl leading-none select-none">${p.emoji}</span>
-        <span class="pop-title text-3xl text-black block leading-none truncate max-w-[220px]">${p.name}</span>
+    <button onclick="selectProduct(${p.id})" class="btn-pop pop-border pop-shadow rounded-3xl p-6 flex flex-col items-center justify-between text-center w-full h-full min-h-[140px] max-h-[18vh] hover:opacity-80 transition-all" style="background: ${p.bg};">
+      
+      <div class="w-full flex justify-center">
+        <span class="text-8xl leading-none select-none">${p.emoji}</span>
       </div>
-      <div class="mt-2">
-        <span class="font-bold text-xl pop-border rounded-full px-5 py-1 bg-white text-black shadow-sm inline-block">€${p.price.toFixed(2)}</span>
+      
+      <div class="w-full my-auto flex justify-center">
+        <span class="pop-title text-3xl text-black block leading-none truncate max-w-[240px]">${p.name}</span>
       </div>
+      
+      <div class="w-full flex justify-center">
+        <span class="font-bold text-2xl pop-border rounded-full px-6 py-1 bg-white text-black shadow-sm inline-block">€${p.price.toFixed(2)}</span>
+      </div>
+      
     </button>
   `).join('');
 }
