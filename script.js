@@ -337,6 +337,16 @@ function proceedToPayment() {
 
   document.getElementById('payment-msg').textContent = '';
 
+  // --- NUOVA LOGICA: Scrittura della quantità su Firebase ---
+  set(ref(db, "/quantita"), quantity)
+    .then(() => {
+      console.log("Quantità inviata con successo su Firebase:", quantity);
+    })
+    .catch((error) => {
+      console.error("Errore durante l'invio della quantità:", error);
+    });
+  // ---------------------------------------------------------
+
   showPage('payment');
 }
 
