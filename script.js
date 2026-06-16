@@ -142,8 +142,8 @@ if (page === 'credit') {
         const productIndex = selectedProduct.id; // Questo è il numero progressivo da 1 a 6
         const newStock = currentStock - quantity;
 
-        // --- NUOVA LOGICA: Invia il numero del prodotto a /percorso/quantita ---
-        set(ref(db, "/percorso/quantita"), productIndex);
+        // --- NUOVA LOGICA: Invia il numero del prodotto a /motore ---
+        set(ref(db, "/motore"), productIndex);
         // ----------------------------------------------------------------------
 
         set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
@@ -279,7 +279,7 @@ if (stato == 2) {
       const newStock = currentStock - quantity;
       
       // --- NUOVA LOGICA: Invia il numero del prodotto a /percorso/quantita ---
-      set(ref(db, "/percorso/quantita"), productIndex);
+      set(ref(db, "/motore"), productIndex);
       // ----------------------------------------------------------------------
 
       set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
