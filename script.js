@@ -131,22 +131,26 @@ if (page === 'coins-prompt') {
   }, 3000);
 }
 
-  if (page === 'credit') {
+if (page === 'credit') {
     const unsubscribe = onValue(percorsoChiave, (snapshot) => {
       credit = snapshot.val();
       updateCreditDisplay()
       if(credit >= totalPrice && totalPrice > 0) {
         unsubscribe();
         setTimeout(() => showPage('coins-processing'), 2000);
-        const productIndex = selectedProduct.id;
+        
+        const productIndex = selectedProduct.id; // Questo è il numero progressivo da 1 a 6
         const newStock = currentStock - quantity;
+
+        // --- NUOVA LOGICA: Invia il numero del prodotto a /percorso/quantita ---
+        set(ref(db, "/percorso/quantita"), productIndex);
+        // ----------------------------------------------------------------------
 
         set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
         setTimeout(() => showPage('thankyou'), 5000);
         credit = 0;
       }
     });
-      
   }
 
   if (page === 'thankyou') {
@@ -264,14 +268,20 @@ set(ref(db, "/percorso/prezzo"), totalPrice);
     const unsubscribeNfc = onValue(statoNfcRef, (snapshot) => {
     const stato = snapshot.val();
 
-    if (stato == 2) {
+if (stato == 2) {
       unsubscribeNfc(); // stop listener
       stato_nfc = 0;
       set(ref(db, "/percorso/stato_nfc"), stato_nfc);
       showPage('card-processing');
       setTimeout(() => showPage('payment-success'), 2000);
-      const productIndex = selectedProduct.id;
+      
+      const productIndex = selectedProduct.id; // Questo è il numero progressivo da 1 a 6
       const newStock = currentStock - quantity;
+      
+      // --- NUOVA LOGICA: Invia il numero del prodotto a /percorso/quantita ---
+      set(ref(db, "/percorso/quantita"), productIndex);
+      // ----------------------------------------------------------------------
+
       set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
       setTimeout(() => showPage('thankyou'), 4000);
     }
