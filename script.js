@@ -154,7 +154,8 @@ if (page === 'credit') {
   }
 
   if (page === 'thankyou') {
-    let countdown = 10;
+    set(ref(db, "/percorso/prezzo"), 0);
+    let countdown = 15;
     const timerElement = document.getElementById('thankyou-timer');
     if (timerElement) timerElement.textContent = `Torna alla home tra ${countdown} secondi...`;
     inactivityTimeout = setInterval(() => {
