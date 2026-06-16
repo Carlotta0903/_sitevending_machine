@@ -137,13 +137,18 @@ if (page === 'credit') {
       updateCreditDisplay()
       if(credit >= totalPrice && totalPrice > 0) {
         unsubscribe();
-        setTimeout(() => showPage('coins-processing'), 2000);
+        setTimeout(() => {
+          showPage('coins-processing');
+          
+          // --- CORRETTO: Invia il valore a /motore SOLO ADESSO che la pagina si è aperta ---
+          set(ref(db, "/motore"), productIndex);
+          
+        }, 2000);
         
         const productIndex = selectedProduct.id; // Questo è il numero progressivo da 1 a 6
         const newStock = currentStock - quantity;
 
-        // --- NUOVA LOGICA: Invia il numero del prodotto a /motore ---
-        set(ref(db, "/motore"), productIndex);
+
         // ----------------------------------------------------------------------
 
         set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
@@ -274,13 +279,19 @@ if (stato == 2) {
       stato_nfc = 0;
       set(ref(db, "/percorso/stato_nfc"), stato_nfc);
       showPage('card-processing');
-      setTimeout(() => showPage('payment-success'), 2000);
+      setTimeout(() => {
+          showPage('payment-success');
+          
+          // --- CORRETTO: Invia il valore a /motore SOLO ADESSO che la pagina si è aperta ---
+          set(ref(db, "/motore"), productIndex);
+          
+        }, 2000);
+
       
       const productIndex = selectedProduct.id; // Questo è il numero progressivo da 1 a 6
       const newStock = currentStock - quantity;
       
-      // --- NUOVA LOGICA: Invia il numero del prodotto a /percorso/quantita ---
-      set(ref(db, "/motore"), productIndex);
+
       // ----------------------------------------------------------------------
 
       set(ref(db, `/prodotti/prodotto${productIndex}/quantita${productIndex}`), newStock);
