@@ -263,7 +263,7 @@ function processCardPayment() {
   stato_nfc = 1;
 set(ref(db, "/percorso/stato_nfc"), stato_nfc);
 
-set(ref(db, "/percorso/prezzo"), totalPrice);
+//set(ref(db, "/percorso/prezzo"), totalPrice);
 
 
   // 1. Mostra il prompt "Appoggia la carta" dopo 2 secondi
