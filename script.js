@@ -25,7 +25,7 @@ function getProductPath(index) {
 const prodottiRef = ref(db, "/prodotti");
 
 function getEmoji(id) {
-  const emojis = ["​🥐​","🥤","🍫","💧","🍪","🧃"];
+  const emojis = ["​🥐​","​🥜​","​​🥖​","🥤","​🧋​","💧"];
   return emojis[id - 1] || "📦";
 }
 
